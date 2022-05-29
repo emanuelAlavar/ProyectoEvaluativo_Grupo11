@@ -8,8 +8,10 @@
 		<meta charset="utf-8">
 		<title>Insert title here</title>
 	</head>
-	<body>
+	<body >
+	
 		<div class="container">
+			<header th:replace="/layouts/header::header"></header><br>
 			<div class="row">			
 				<!-- CARDS -->
 				<div th:each="candidato:${candidatos}" class="col-md-4">
@@ -22,7 +24,8 @@
 						</div>
 					</div>
 				</div>			
-			</div>
+			</div><br>
+			<footer th:replace="/layouts/footer::footer"></footer>
 		</div>	
 	</body>
 </html>

@@ -19,12 +19,7 @@ public class UsuarioController {
 	private static final Log LOGGER = LogFactory.getLog(UsuarioController.class);
 	ListaUsuarios listaUsuarios = new ListaUsuarios();
 	
-	@GetMapping("/usuario")
-	public ModelAndView getUsuario(Model model) {
-		ModelAndView mav = new ModelAndView("lista_usuario");
-		mav.addObject("usuario", listaUsuarios.getUsuarios());
-		return mav;
-	}
+	
 	
 	@GetMapping("/usuario/nuevo")
 	public String getNuevoUsuarioForm(Model model) {
@@ -34,11 +29,18 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario")
 	public ModelAndView putCandidato(@ModelAttribute("usuario") Usuario usuario) {
-		ModelAndView mav = new ModelAndView("lista_usuario");
+		ModelAndView mav = new ModelAndView("usuarios");
 		
 		if(listaUsuarios.getUsuarios().add(usuario)) {
 			LOGGER.info("Se registró un nuevo usuario");
 		}
+		mav.addObject("usuarios", listaUsuarios.getUsuarios());
+		return mav;
+	}
+	
+	@GetMapping("/usuario")
+	public ModelAndView getCandidatos(Model model) {
+		ModelAndView mav = new ModelAndView("lista_usuario");
 		mav.addObject("usuarios", listaUsuarios.getUsuarios());
 		return mav;
 	}

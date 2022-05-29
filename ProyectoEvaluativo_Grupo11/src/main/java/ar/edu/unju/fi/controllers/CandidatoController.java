@@ -57,7 +57,7 @@ public class CandidatoController {
 	}
 	
 
-	@GetMapping("/viewCandidatos")
+	@PostMapping("/viewCandidatos")
 	public String visualizarPaginaCandidatos(Model model) {	
     	model.addAttribute("candidatos",this.getCandidatos());
     	LOGGER.info("REQUEST: /viewCandidatos - METHOD: visualizarPaginaCandidatos() - INFO: Se agregan al contexto de la aplicación la colección de posts");

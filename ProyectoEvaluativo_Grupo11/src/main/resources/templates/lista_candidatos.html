@@ -6,7 +6,9 @@
 		<title>Candidatos</title>
 	</head>
 	<body>
-		<div id="lista_candidatos">
+		<div class="container">
+			<header th:replace="/layouts/header::header"></header>
+			<div th:replace="/layouts/navbar::navbar"></div>
 			<br>
 			<p class="h4 mb-10">Lista de Candidatos</p>
 			<br>
@@ -31,14 +33,15 @@
 						<td th:text="${candidato.descripcion}"></td>
 						<td th:text="${candidato.votos}"></td>
 						<td>
-							<a href="#" id="editarCandidato" class="btn btn-warning">Editar</a>
-							<a href="#" id="eliminarCandidato" class="btn btn-danger">Eliminar</a>
+							<button th:href="@{#}" id="editarCandidato" class="btn btn-warning">Editar</button>
+							<button th:href="@{#}" id="eliminarCandidato" class="btn btn-danger">Eliminar</button>	
 						</td>
 					</tr>
 				</table>
 				<br>
 				<br>				
 			</div>	
+			<footer th:replace="/layouts/footer::footer"></footer>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>	
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

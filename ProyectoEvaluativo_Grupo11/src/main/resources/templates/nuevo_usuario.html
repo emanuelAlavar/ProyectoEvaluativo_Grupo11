@@ -7,22 +7,14 @@
 		<title>Nuevo Usuario</title>
 	</head>
 	<body class="container">
-	    <div id="header" th:fragment="header" >  
-			<h1 class="h1">Vota a tu artista favorito</h1> 
-			<nav class="navbar navbar-expand-lg bg-light">
-			  <div class="container-fluid">
-			    
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			        <li class="nav-item"><a class="nav-link" href="/usuario/nuevo">Inicio</a></li> 	        
-			      </ul>			     
-			    </div>
-			  </div>
-			</nav>	   		           
-		 </div> 
+		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
+			<br>
+			<br>
+			<br>
+			<br>
 			<h2>Registrarse</h2><br>
-			<form th:action="@{/viewCandidatos}" method="POST" th:object="${usuario}">
+			<form th:action="@{/usuario}" method="POST" th:object="${usuario}">
 			  
 			  
 			  <div class="mb-3 row">
@@ -35,11 +27,15 @@
 			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">		    
 			  </div>
 			  
+			  <div class="mb-3 row">
+			    <label for="idFecha" class="col-form-label">Fecha de Nacimiento</label>
+			    <input th:field="*{fechaDeNacimiento}" type="date" class="form-control" id="idFecha">		    
+			  </div>
 			  
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button   class="btn btn-primary me-md-2" type="submit">Registrar</button>
-					<a th:href="@{/usuario}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+					<button th:href="@{/}" class="btn btn-primary me-md-2" type="submit">Registrar</button>
+					<a th:href="@{/}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			  
 			  

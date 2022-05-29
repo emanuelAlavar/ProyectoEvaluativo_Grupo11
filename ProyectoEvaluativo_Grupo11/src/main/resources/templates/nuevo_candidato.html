@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nuevo Candidato</title>
+	</head>
+	<body class="container">
+		<div class="container col-4">
+			<h2>Registrar Candidato</h2><br>
+			<form th:action="@{/candidato}" method="POST" th:object="${candidato}">
+			  <div class="mb-3">
+			    <label for="idCodigo" class="col-form-label">Código</label>
+			    <input th:field="*{codigo}" type="number" class="form-control" id="idCodigo">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idNombre" class="col-form-label">Nombre</label>
+			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idGenero" class="col-form-label">Género</label>
+			    <input th:field="*{genero}" type="text" class="form-control" id="idGenero">		    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idDescripcion" class="col-form-label">Descripción</label>
+			    <input th:field="*{descripcion}" type="text" class="form-control" id="idDescripcion">		    
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{/candidato}"  class="btn btn-primary me-md-2" type="submit">Registrar</button>
+					<a th:href="@{/candidato}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>	
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+	</body>
+</html>

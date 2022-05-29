@@ -3,14 +3,17 @@ package ar.edu.unju.fi.models;
 import java.time.LocalDate;
 import java.time.Period;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Usuario {
-	String nombre;
-	String email;
-	LocalDate fechaDeNacimiento;
-	int maxVotos = 3;
+	private String nombre;
+	private String email;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate fechaDeNacimiento;
+	private int maxVotos = 3;
+	
 	
 	public Usuario(String nombre, String email, LocalDate fechaDeNacimiento) {
 		this.nombre = nombre;
@@ -45,7 +48,7 @@ public class Usuario {
 	}
 	public int getEdad() {
 		LocalDate fechaActual = LocalDate.now();
-		Period periodo = Period.between(fechaDeNacimiento, fechaActual);
+		Period periodo = Period.between(this.getFechaDeNacimiento(), fechaActual);
 		return periodo.getYears();
 	}
 	

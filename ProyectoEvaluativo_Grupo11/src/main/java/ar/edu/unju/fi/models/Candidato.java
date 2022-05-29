@@ -1,14 +1,18 @@
 package ar.edu.unju.fi.models;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class Candidato {
-	int codigo;
-	String nombre;
-	String genero;
-	String descripcion;
-	int votos = 0;
+	private int codigo;
+	private String nombre;
+	private String genero;
+	private String descripcion;
+	private int votos = 0;
+	private static final Log LOGGER = LogFactory.getLog(Candidato.class);
 	
 	public Candidato(int codigo, String nombre, String genero, String descripcion) {
 		this.codigo = codigo;
@@ -48,7 +52,9 @@ public class Candidato {
 	public void setVotos(int votos) {
 		this.votos = votos;
 	}
-	
+	public void updateVotos() {
+		this.votos += 1;
+	}
 	
 	
 }

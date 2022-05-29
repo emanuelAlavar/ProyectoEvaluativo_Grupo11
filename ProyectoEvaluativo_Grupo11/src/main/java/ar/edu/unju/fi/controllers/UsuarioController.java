@@ -29,7 +29,7 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario")
 	public ModelAndView putCandidato(@ModelAttribute("usuario") Usuario usuario) {
-		ModelAndView mav = new ModelAndView("usuarios");
+		ModelAndView mav = new ModelAndView("lista_usuario");
 		
 		if(listaUsuarios.getUsuarios().add(usuario)) {
 			LOGGER.info("Se registró un nuevo usuario");

@@ -1,6 +1,10 @@
 package ar.edu.unju.fi.controllers;
 
 import org.apache.commons.logging.LogFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,5 +46,25 @@ public class CandidatoController {
 		}
 		mav.addObject("candidatos", listaCandidatos.getCandidatos());
 		return mav;
+	}
+	
+	public List<Candidato> getCandidatos(){
+		List<Candidato> listaCandidatos = new ArrayList<>();
+		listaCandidatos.add(new Candidato(10,"Pablo Lescano","Masculino","Es un cantante y músico argentino, líder del grupo Damas Gratis"));
+		listaCandidatos.add(new Candidato(9,"Maluma","Masculino","Es un actor y cantante colombiano de pop, reguetón y trap latino"));
+		listaCandidatos.add(new Candidato(8,"Tini","Femenino","Es una actriz, cantante y compositora argentina"));
+		return listaCandidatos;
+	}
+	
+
+	@GetMapping("/viewCandidatos")
+	public String visualizarPaginaCandidatos(Model model) {	
+    	model.addAttribute("candidatos",this.getCandidatos());
+    	LOGGER.info("REQUEST: /viewCandidatos - METHOD: visualizarPaginaCandidatos() - INFO: Se agregan al contexto de la aplicación la colección de posts");
+    	for(Candidato c:this.getCandidatos()) {
+    		LOGGER.info(c.toString());
+    	}
+    	LOGGER.info("REQUEST: /viewPosts - METHOD: visualizarPaginaPosts() - INFO: Se solicita la página post.html");
+    	return "candidatos";
 	}
 }

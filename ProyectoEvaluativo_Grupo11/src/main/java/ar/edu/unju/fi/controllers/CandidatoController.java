@@ -57,7 +57,7 @@ public class CandidatoController {
     		LOGGER.info(c.toString());
     	}
     	LOGGER.info("REQUEST: /viewPosts - METHOD: visualizarPaginaPosts() - INFO: Se solicita la página post.html");
-    	return "nuevo_usuario";
+    	return "index";
 	}
 	
 }

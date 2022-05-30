@@ -33,8 +33,8 @@
 						<td th:text="${candidato.descripcion}"></td>
 						<td th:text="${candidato.votos}"></td>
 						<td>
-							<button th:href="@{#}" id="editarCandidato" class="btn btn-warning">Editar</button>
-							<button th:href="@{#}" id="eliminarCandidato" class="btn btn-danger">Eliminar</button>	
+							<a th:href="@{/candidato/editar/}+${candidato.codigo}" id="editarCandidato" class="btn btn-warning">Editar</a>
+							<a th:href="@{/candidato/eliminar/}+${candidato.codigo}" id="eliminarCandidato" class="btn btn-danger">Eliminar</a>	
 						</td>
 					</tr>
 				</table>

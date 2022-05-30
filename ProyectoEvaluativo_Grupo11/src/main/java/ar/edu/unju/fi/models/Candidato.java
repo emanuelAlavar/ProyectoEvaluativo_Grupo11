@@ -1,5 +1,8 @@
 package ar.edu.unju.fi.models;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
@@ -7,10 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Candidato {
+	@Min(value=0)
 	private int codigo;
+	@NotBlank
 	private String nombre;
+	@NotBlank
 	private String genero;
+	@NotBlank
 	private String descripcion;
+	@Min(value=0)
 	private int votos = 0;
 	//private static final Log LOGGER = LogFactory.getLog(Candidato.class);
 	

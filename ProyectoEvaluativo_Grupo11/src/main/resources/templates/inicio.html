@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inicio</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</head>
+	<body>
+	<div class="container">
+		<header th:replace="layouts/header::header"> </header><br><br>
+			<div>
+				<h1>Bienvenido</h1><br>
+				<h3>Elije a tu artista favorito</h3>
+				<h3>Para poder votar tiene que registrarse</h1>
+				<a th:href="@{/usuario/nuevo}" class="btn btn-primary">Votar</a>
+			</div><br><br>
+			
+		<footer th:replace="layouts/footer::footer"></footer>
+	</div>
+	</body>
+</html>

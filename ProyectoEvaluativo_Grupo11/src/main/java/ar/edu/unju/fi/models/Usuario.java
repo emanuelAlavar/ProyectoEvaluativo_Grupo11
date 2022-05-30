@@ -3,15 +3,25 @@ package ar.edu.unju.fi.models;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Usuario {
+	@NotBlank
+	@Size(min=3, max=100)
 	private String nombre;
+	@NotBlank
 	private String email;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeNacimiento;
+	@Max(value=3)
+	@Min(value=0)
 	private int maxVotos = 3;
 	
 	

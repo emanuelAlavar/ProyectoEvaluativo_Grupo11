@@ -21,21 +21,25 @@
 			  	<input type="hidden" th:field="*{codigo}"/>
 			    <label for="idCodigo" class="col-form-label">Código</label>
 			    <input th:value="${codigo}" type="number" class="form-control" id="idCodigo" disabled="disabled">
+			    <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>		
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idNombre" class="col-form-label">Nombre</label>
 			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idGenero" class="col-form-label">Género</label>
-			    <input th:field="*{genero}" type="text" class="form-control" id="idGenero">		    
+			    <input th:field="*{genero}" type="text" class="form-control" id="idGenero">		
+			    <div class="text-danger" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idDescripcion" class="col-form-label">Descripción</label>
-			    <input th:field="*{descripcion}" type="text" class="form-control" id="idDescripcion">		    
+			    <input th:field="*{descripcion}" type="text" class="form-control" id="idDescripcion">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>	    
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

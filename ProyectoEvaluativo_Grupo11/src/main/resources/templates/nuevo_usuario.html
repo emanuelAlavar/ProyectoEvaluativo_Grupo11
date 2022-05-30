@@ -7,7 +7,6 @@
 		<title>Nuevo Usuario</title>
 	</head>
 	<body class="container">
-		<br>
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<br>
@@ -21,6 +20,7 @@
 			  <div class="mb-3 row">
 			    <label for="idNombre" class="col-form-label">Nombre</label>
 			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
@@ -35,7 +35,7 @@
 			  
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button th:href="@{/}" class="btn btn-primary me-md-2" type="submit">Registrar</button>
+					<button th:href="@{/usuario}" class="btn btn-primary me-md-2" type="submit">Registrar</button>
 					<a th:href="@{/}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			  

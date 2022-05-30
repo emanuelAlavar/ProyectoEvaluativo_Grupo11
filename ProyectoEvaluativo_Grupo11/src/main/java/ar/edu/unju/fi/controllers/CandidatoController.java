@@ -9,19 +9,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.models.Candidato;
 import ar.edu.unju.fi.service.ICandidatoService;
-import ar.edu.unju.fi.util.ListaCandidatos;
-
 
 @Controller
 @RequestMapping("/")
@@ -97,7 +95,7 @@ public class CandidatoController {
 	}
 	
 	@PostMapping("/candidato/modificar")
-	public ModelAndView editarDatosCandidato(@ModelAttribute("candidato") Candidato candidato , BindingResult bindingResult) {
+	public ModelAndView editarDatosCandidato(@Validated @ModelAttribute("candidato") Candidato candidato , BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			LOGGER.info("ocurrio un error"+candidato);
 			ModelAndView mav= new ModelAndView("edicion_candidato");

@@ -16,6 +16,7 @@ public class ListaCandidatos {
 		candidatos.add(new Candidato(10,"Pablo Lescano","Masculino","Es un cantante y músico argentino, líder del grupo Damas Gratis"));
 		candidatos.add(new Candidato(9,"Maluma","Masculino","Es un actor y cantante colombiano de pop, reguetón y trap latino"));
 		candidatos.add(new Candidato(8,"Tini","Femenino","Es una actriz, cantante y compositora argentina"));
+		candidatos.add(new Candidato(0,"Ninguno","-","Selecciona esta opción si decides no votar por ninguno de los candidatos propuestos"));
 	}
 
 	public ArrayList<Candidato> getCandidatos() {

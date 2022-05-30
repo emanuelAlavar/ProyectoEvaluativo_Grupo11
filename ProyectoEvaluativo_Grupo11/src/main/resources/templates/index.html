@@ -12,7 +12,6 @@
 		<div class="container">
 			<br>
 			<header th:replace="/layouts/header::header"></header>
-			<br>
 			<div th:replace="/layouts/navbar::navbar"></div>
 			<br>
 			<p class="h5 mb-10">Votá por el usuario que más guste!</p>
@@ -24,7 +23,7 @@
 						    <h5 th:text="${candidato.nombre}" class="card-title"></h5>
 					        <p th:text="${candidato.genero}" class="card-text"></p>
 						    <p th:text="${candidato.descripcion}" class="card-text"></p>
-						    <a th:href="@{#}" class="btn btn-primary">Votar</a>
+						    <a th:href="@{/votos?codigo=}+${candidato.codigo}" class="btn btn-primary">Votar</a>
 						</div>
 					</div>
 					<br>

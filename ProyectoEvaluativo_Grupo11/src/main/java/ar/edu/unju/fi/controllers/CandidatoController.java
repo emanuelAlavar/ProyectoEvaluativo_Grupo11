@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.models.Candidato;
@@ -71,8 +71,25 @@ public class CandidatoController {
     	return "index";
 	}
 	
+	@GetMapping("/votos")
+	public String updateVotos(@RequestParam(value="codigo") int codigo) {
+		ModelAndView mav = new ModelAndView("lista_usuarios");
+		for(Candidato c:candidatoService.getListaCandidato().getCandidatos()) {
+			if(c.getCodigo() == codigo) {
+				c.updateVotos();
+				LOGGER.info("Se ha actualizado el conteo de votos");
+			}
+		}
+		mav.addObject("candidatos", candidatoService.getListaCandidato().getCandidatos());
+		return "votacionConfirmada";
+	}
+	
 	@GetMapping("/candidato/editar/{codigo}")
-	public ModelAndView getEditarCandidatoPage(@PathVariable(value="codigo")int codigo) {
+	public ModelAndView getEditarCandidatoPage(@PathVariable(value="codigo") int codigo) {
+		if(codigo == 0) {
+			ModelAndView mav= new ModelAndView("redirect:/candidato");
+			return mav;
+		}
 		ModelAndView mav= new ModelAndView("edicion_candidato");
 		Candidato candidato= candidatoService.buscarCandidato(codigo);
 		mav.addObject("candidato", candidato);
@@ -89,6 +106,7 @@ public class CandidatoController {
 		}
 		ModelAndView mav = new ModelAndView("redirect:/candidato");
 		candidatoService.modificarCandidato(candidato);
+		LOGGER.info("Se ha modificado el candidato ID: "+candidato.getCodigo());
 		return mav;
 	}
 	

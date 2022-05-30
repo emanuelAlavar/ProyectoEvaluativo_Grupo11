@@ -1,7 +1,7 @@
 package ar.edu.unju.fi.models;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+//import org.apache.commons.logging.Log;
+//import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 
@@ -12,7 +12,7 @@ public class Candidato {
 	private String genero;
 	private String descripcion;
 	private int votos = 0;
-	private static final Log LOGGER = LogFactory.getLog(Candidato.class);
+	//private static final Log LOGGER = LogFactory.getLog(Candidato.class);
 	
 	public Candidato(int codigo, String nombre, String genero, String descripcion) {
 		this.codigo = codigo;

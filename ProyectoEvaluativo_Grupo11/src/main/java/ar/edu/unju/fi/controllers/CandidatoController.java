@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -57,7 +57,7 @@ public class CandidatoController {
     		LOGGER.info(c.toString());
     	}
     	LOGGER.info("REQUEST: /viewPosts - METHOD: visualizarPaginaPosts() - INFO: Se solicita la página post.html");
-    	return "index";
+    	return "nuevo_usuario";
 	}
 	
 }
